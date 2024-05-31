@@ -1,4 +1,4 @@
-package graph;
+package Graph;
 
 public class Edge<Vertex> {
     private Vertex source;

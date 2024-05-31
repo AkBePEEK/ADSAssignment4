@@ -1,4 +1,4 @@
-package graph;
+package Graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,25 +21,29 @@ public class MyGraph<Vertex>{
     public void addVertex(Vertex v){
         graph.putIfAbsent(v, new ArrayList<>());
     }
+    public void addEdge(Vertex source, Vertex dest){
+        addEdge(source, dest, 0);
+    }
 
-    public void addEdge(Vertex from, Vertex to){
-        if (!graph.containsKey(from)) addVertex(from);
-        if (!graph.containsKey(to)) addVertex(to);
+    public void addEdge(Vertex source, Vertex dest, double weight){
+        if (!hasVertex(source)) addVertex(source);
+        if (!hasVertex(dest)) addVertex(dest);
 
-        graph.get(from).add(new Edge<>(from, to));
-        if (inderected) graph.get(to).add(new Edge<>(to, from));
+        if (hasEdge(source, dest) || source.equals(dest)) return;
+        graph.get(source).add(new Edge<>(source, dest));
+        if (inderected) graph.get(dest).add(new Edge<>(dest, source, weight));
     }
     public int getVerticesCount(){
         return graph.size();
     }
-    public int getEdgeCount(){
+    public int getEdgesCount(){
         return graph.values().size() / 2;
     }
     public boolean hasVertex(Vertex v){
         return graph.containsKey(v);
     }
-    public boolean hasEdge(Vertex from, Vertex to){
-        return graph.get(from).contains(to);
+    public boolean hasEdge(Vertex source, Vertex dest){
+        return graph.get(source).contains(dest);
     }
     public List<Edge<Vertex>> adjacencyList(Vertex v){
         if (!hasVertex(v)) return null;

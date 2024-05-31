@@ -1,4 +1,4 @@
-package graph;
+package Graph;
 
 public class DijkstraSearch<Vertex> extends Search<Vertex>{
     private final WeightedGraph<Vertex> graph;
