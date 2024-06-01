@@ -5,8 +5,13 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Vertex<V> {
-    private V data;
+    private final V data;
     private final Map<Vertex<V>, Double> adjacentVertices = new HashMap<>();
+
+    public Vertex(V data) {
+        this.data = data;
+    }
+
     public void addAdjacentVertex(Vertex<V> destination, double weight){
         adjacentVertices.put(destination, weight);
     }
