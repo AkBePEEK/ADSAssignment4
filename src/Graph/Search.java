@@ -9,7 +9,7 @@ public class Search<Vertex>{
     public Search(Vertex source){
         this.source = source;
     }
-    private Iterable<Vertex> pathTo(Vertex dest){
+    public Iterable<Vertex> pathTo(Vertex dest){
         if (!hasPathTo(dest)) return null;
         List<Vertex> track = new ArrayList<>();
 

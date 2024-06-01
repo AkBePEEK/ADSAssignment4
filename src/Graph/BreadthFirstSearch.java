@@ -6,7 +6,7 @@ import java.util.Deque;
 public class BreadthFirstSearch<Vertex> extends Search<Vertex>{
     private final MyGraph<Vertex> graph;
 
-    public BreadthFirstSearch(Vertex source, MyGraph<Vertex> graph) {
+    public BreadthFirstSearch(MyGraph<Vertex> graph, Vertex source) {
         super(source);
         this.graph = graph;
 
